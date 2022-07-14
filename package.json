@@ -1,0 +1,41 @@
+{
+  "name": "ts-clean-architecture",
+  "version": "1.0.0",
+  "description": "Clean architecture implementation with node and ts",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RamaDL/node-ts-clean-architecture.git"
+  },
+  "keywords": [
+    "node",
+    "ts",
+    "clean",
+    "architecture",
+    "clean-architecture"
+  ],
+  "author": "Ramiro Dutto Luquez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RamaDL/node-ts-clean-architecture/issues"
+  },
+  "homepage": "https://github.com/RamaDL/node-ts-clean-architecture#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.0.4",
+    "@types/uuid": "^8.3.4",
+    "eslint": "^8.19.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  }
+}
