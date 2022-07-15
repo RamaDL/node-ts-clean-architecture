@@ -4,7 +4,7 @@
         "project": "./tsconfig.json"
     },
     "rules": {
-        "@typescript-eslint/semi": "off"
+        "@typescript-eslint/no-floating-promises": "off"
     },
     "ignorePatterns": [
         "dist",
