@@ -2,7 +2,7 @@ import { User } from '@src/domain/entities/User'
 import { UserRepository } from '@src/domain/repositories/UserRepository'
 
 export class InMemoryUserRepository implements UserRepository {
-  private readonly _userData: User[] = []
+  private _userData: User[] = []
 
   async getAll (): Promise<User[]> {
     return this._userData
@@ -22,6 +22,9 @@ export class InMemoryUserRepository implements UserRepository {
   }
 
   async update (user: User): Promise<User> {
+    const users = this._userData.filter(x => x.id !== user.id)
+    users.push(user)
+    this._userData = users
     return user
   }
 
@@ -30,6 +33,10 @@ export class InMemoryUserRepository implements UserRepository {
   }
 
   async getById (id: string): Promise<User | null> {
+    const user: User[] | null = this._userData.filter(x => x.id === id)
+
+    if (user.length > 0) return user[0]
+
     return null
   }
 }
