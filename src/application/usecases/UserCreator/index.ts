@@ -1,4 +1,4 @@
-import { User } from '@src/domain/entities/User'
+import { UserEntity } from '@src/domain/entities/User'
 import { UserRepository } from '@src/domain/repositories/UserRepository'
 import { ExistUserByUserName } from '../../../domain/services/ExistUserByUserame'
 import { UserAlreadyExistException } from '../../../domain/exceptions/UserAlreadyExistException'
@@ -12,14 +12,14 @@ export class UserCreatorUseCase {
     this._existUserByUserName = new ExistUserByUserName(userRepository)
   }
 
-  async run (data: User): Promise<User> {
+  async run (data: UserEntity): Promise<UserEntity> {
     const existUser: boolean = await this._existUserByUserName.run(
       data.username
     )
 
     if (existUser) throw new UserAlreadyExistException()
 
-    const userCreated: User = await this._userRepository.save(data)
+    const userCreated: UserEntity = await this._userRepository.save(data)
 
     return userCreated
   }

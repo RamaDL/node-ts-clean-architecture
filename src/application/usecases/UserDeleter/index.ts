@@ -1,4 +1,4 @@
-import { User } from '@src/domain/entities/User'
+import { UserEntity } from '@src/domain/entities/User'
 import { UserRepository } from '@src/domain/repositories/UserRepository'
 import { UserGetterById } from '../../../domain/services/UserGetterById'
 import { UserNotFoundException } from '../../../domain/exceptions/UserNotFoundException'
@@ -12,10 +12,10 @@ export class UserDeleterUseCase {
     this._userGetterById = new UserGetterById(userRepository)
   }
 
-  public async run (userId: string): Promise<User> {
-    const userToBeDeleted: User | null = await this._userGetterById.run(userId)
+  public async run (userId: string): Promise<UserEntity> {
+    const userToBeDeleted: UserEntity | null = await this._userGetterById.run(userId)
 
-    if (userToBeDeleted === undefined) throw new UserNotFoundException()
+    if (userToBeDeleted === null) throw new UserNotFoundException()
     await this._userRepository.delete(userToBeDeleted.id)
     return userToBeDeleted
   }

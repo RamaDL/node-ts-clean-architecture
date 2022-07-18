@@ -1,4 +1,4 @@
-import { User } from '@src/domain/entities/User'
+import { UserEntity } from '@src/domain/entities/User'
 import { UserRepository } from '@src/domain/repositories/UserRepository'
 
 export class UserGetterUseCase {
@@ -8,8 +8,8 @@ export class UserGetterUseCase {
     this._userRepository = userRepository
   }
 
-  async run (): Promise<User[]> {
-    const users: User[] = await this._userRepository.getAll()
+  async run (): Promise<UserEntity[]> {
+    const users: UserEntity[] = await this._userRepository.getAll()
     return users
   }
 }

@@ -1,10 +1,10 @@
-import { User } from '@src/domain/entities/User'
+import { UserEntity } from '@src/domain/entities/User'
 
 export interface UserRepository {
-  getAll: () => Promise<User[]>
-  save: (user: User) => Promise<User>
-  getByUserName: (username: string) => Promise<User | null>
-  update: (user: User) => Promise<User>
+  getAll: () => Promise<UserEntity[]>
+  save: (user: UserEntity) => Promise<UserEntity>
+  getByUserName: (username: string) => Promise<UserEntity | null>
+  update: (user: UserEntity) => Promise<UserEntity>
   delete: (id: string) => Promise<void>
-  getById: (id: string) => Promise<User | null>
+  getById: (id: string) => Promise<UserEntity | null>
 }
